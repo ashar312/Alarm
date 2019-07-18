@@ -20,6 +20,65 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
 
+
+
+   /* //mohib code
+
+    public static final int REQUEST_CODE=101;
+    //Button button;
+    AlarmManager alarmManager;
+    Intent intent;
+    static  Context context;
+    PendingIntent pendingIntent;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this, "On Create Called", Toast.LENGTH_SHORT).show();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onStart() {
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.DAY_OF_WEEK, 4);
+        calendar.set(Calendar.HOUR_OF_DAY, 16);
+        calendar.set(Calendar.MINUTE, 15);
+        calendar.set(Calendar.SECOND, 0);
+
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTimeInMillis(System.currentTimeMillis());
+        calendar1.set(Calendar.DAY_OF_WEEK, 4);
+        calendar1.set(Calendar.HOUR_OF_DAY, 16);
+        calendar1.set(Calendar.MINUTE, 17);
+        calendar1.set(Calendar.SECOND, 0);
+
+
+        Log.d("moheb", "calendar " + calendar.getTime()+ " milli " + calendar.getTimeInMillis());
+
+        if(calendar.getTimeInMillis() >= System.currentTimeMillis()){
+            intent = new Intent(MainActivity.this, Notification_reciever.class);
+            pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis()
+                    ,AlarmManager.INTERVAL_DAY * 7, pendingIntent);
+            pendingIntent = PendingIntent.getBroadcast(this, 102, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar1.getTimeInMillis()
+                    ,AlarmManager.INTERVAL_DAY * 7, pendingIntent);
+            PendingIntent pendingIntent2 = PendingIntent.getBroadcast(getApplicationContext(), REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            if (pendingIntent2 != null)
+                Toast.makeText(this, "intent created", Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(this, "On Start Called", Toast.LENGTH_SHORT).show();
+        super.onStart();
+    }*/
+
+
+
+
+
+    //My Code
     static Context context;
     static AlarmManager alarmManager;
     SharedPreferences sharedPreferences;
@@ -37,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         sharedPreferences = getSharedPreferences("MyDays",MODE_PRIVATE);
         alarmClass = new AlarmClass(alarmManager,getApplicationContext(),sharedPreferences);
-      //  alarmClass.CancelAlarm(getBaseContext(),alarmManager);
+    //  alarmClass.CancelAlarm(getBaseContext(),alarmManager);
         SharedPreferences preferences = getSharedPreferences("MyDays", 0);
         preferences.edit().remove("PickDays").commit();
         Log.d("SCHEDULE",alarmClass.RetrieveSchedule("PickDays")+"");

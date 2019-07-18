@@ -21,9 +21,9 @@ public class Notification_reciever extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context,Intent intent) {
-        Log.d("SCHEDULE", MainActivity.alarmClass.RetrieveSchedule("PickDays") + "");
-        MainActivity.alarmClass.SetNextWeekDayAlarm(MainActivity.alarmClass.RetrieveSchedule("PickDays")
-                ,context, 0);
+    //    Log.d("SCHEDULE", MainActivity.alarmClass.RetrieveSchedule("PickDays") + "");
+       /* MainActivity.alarmClass.SetNextWeekDayAlarm(MainActivity.alarmClass.RetrieveSchedule("PickDays")
+                ,context, 0);*/
         Notification(context,intent);
 
     }
