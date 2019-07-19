@@ -32,7 +32,7 @@ public class AlarmClass {
         schedule.setTuesday("12:00 PM");
         schedule.setWednesday("12:00 PM");
         schedule.setThursday("05:00 PM");
-        schedule.setFriday("01:04 PM");
+        schedule.setFriday("03:56 PM");
         schedule.setSaturday("12:00 PM");
         schedule.setSunday("");
 
@@ -42,7 +42,7 @@ public class AlarmClass {
         schedule1.setWednesday("12:03 PM");
         schedule1.setThursday("05:02 PM");
         schedule1.setSaturday("12:03 PM");
-        schedule1.setFriday("01:06 PM");
+        schedule1.setFriday("03:58 PM");
         schedule1.setSunday("");
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
@@ -292,7 +292,7 @@ public class AlarmClass {
                     pIntent(context, daytime + 1));
         }
         if(!schedule.getTuesday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calTuesday.getTimeInMillis()) {
                 TuesTime = calTuesday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 TuesTime = calTuesday.getTimeInMillis();
@@ -301,7 +301,7 @@ public class AlarmClass {
                     pIntent(context,daytime+2));
         }
         if(!schedule.getWednesday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calWed.getTimeInMillis()) {
                 WedTime = calWed.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 WedTime = calWed.getTimeInMillis();
@@ -310,7 +310,7 @@ public class AlarmClass {
                     pIntent(context,daytime+3));
         }
         if(!schedule.getThursday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calthursday.getTimeInMillis()) {
                 ThursdayTime = calthursday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 ThursdayTime = calthursday.getTimeInMillis();
@@ -319,7 +319,7 @@ public class AlarmClass {
                     pIntent(context,daytime+4));
         }
         if(!schedule.getFriday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calfriday.getTimeInMillis()) {
                 FridayTime = calfriday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 FridayTime = calfriday.getTimeInMillis();
@@ -328,7 +328,7 @@ public class AlarmClass {
                     pIntent(context,daytime+5));
         }
         if(!schedule.getSaturday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calsaturday.getTimeInMillis()) {
                 SatTime = calsaturday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 SatTime = calsaturday.getTimeInMillis();
@@ -337,7 +337,7 @@ public class AlarmClass {
                     pIntent(context,daytime+6));
         }
         if(!schedule.getSunday().equals("")) {
-            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+            if (System.currentTimeMillis() > calsunday.getTimeInMillis()) {
                 SunTime = calsunday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
             } else {
                 SunTime = calsunday.getTimeInMillis();

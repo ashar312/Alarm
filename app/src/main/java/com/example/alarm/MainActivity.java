@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //mohib code
+    /*//mohib code
 
     public static final int REQUEST_CODE=101;
     //Button button;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.DAY_OF_WEEK, 6);
         calendar.set(Calendar.HOUR_OF_DAY, 15);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.MINUTE, 24);
         calendar.set(Calendar.SECOND, 0);
 
         Calendar calendar1 = Calendar.getInstance();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 , AlarmManager.INTERVAL_DAY * 7, pendingIntent);
 
 
-        /*if (calendar.getTimeInMillis() >= System.currentTimeMillis()) {
+        *//*if (calendar.getTimeInMillis() >= System.currentTimeMillis()) {
 
             pendingIntent = PendingIntent.getBroadcast(this, 102, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar1.getTimeInMillis()
@@ -97,16 +97,16 @@ public class MainActivity extends AppCompatActivity {
             PendingIntent pendingIntent2 = PendingIntent.getBroadcast(getApplicationContext(), REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             if (pendingIntent2 != null)
                 Toast.makeText(this, "intent created", Toast.LENGTH_SHORT).show();
-        }*/
+        }*//*
         Toast.makeText(this, "On Start Called", Toast.LENGTH_SHORT).show();
         super.onStart();
-    }
+    }*/
 
 
 
 
 
-    /*//My Code
+    //My Code
     static Context context;
     static AlarmManager alarmManager;
     SharedPreferences sharedPreferences;
@@ -125,15 +125,15 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyDays",MODE_PRIVATE);
         alarmClass = new AlarmClass(alarmManager,getApplicationContext(),sharedPreferences);
     //  alarmClass.CancelAlarm(getBaseContext(),alarmManager);
-        SharedPreferences preferences = getSharedPreferences("MyDays", 0);
+        /*SharedPreferences preferences = getSharedPreferences("MyDays", 0);
         preferences.edit().remove("PickDays").commit();
-        Log.d("SCHEDULE",alarmClass.RetrieveSchedule("PickDays")+"");
-        if(alarmClass.RetrieveSchedule("PickDays") == null){
+        */Log.d("SCHEDULE",alarmClass.RetrieveSchedule("PickDays")+"");
+        /*if(alarmClass.RetrieveSchedule("PickDays") == null){
             Log.d("SCHEDULE",alarmClass.RetrieveSchedule("PickDays")+"");
             Log.d("RetrieveSchedule","NULL");
             alarmClass.setSchedule(sharedPreferences);
             alarmClass.SetAlarm(alarmClass.RetrieveSchedule("PickDays"),0,getApplicationContext());
-        }
+        }*/
         Toast.makeText(this, "On Start Called", Toast.LENGTH_SHORT).show();
         super.onStart();
     }
@@ -155,6 +155,6 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(context, Notification_reciever.class);
         Boolean alarmup=(PendingIntent.getBroadcast(context, daytime, i, PendingIntent.FLAG_NO_CREATE)!=null);
         return alarmup;
-    }*/
+    }
 
 }
