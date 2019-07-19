@@ -16,13 +16,13 @@ import java.util.Calendar;
 import java.util.Date;
 public class AlarmClass {
 
-    private final int Monday = 2;
+    /*private final int Monday = 2;
     private final int Tuesday = 3;
     private final int Wednesday = 4;
     private final int Thursday = 5;
     private final int Friday = 6;
     private final int Saturday = 7;
-    private final int Sunday = 1;
+    private final int Sunday = 1;*/
     AlarmManager alarmManager;
     Schedule schedule;
     Schedule schedule1;
@@ -32,7 +32,7 @@ public class AlarmClass {
         schedule.setTuesday("12:00 PM");
         schedule.setWednesday("12:00 PM");
         schedule.setThursday("05:00 PM");
-        schedule.setFriday("12:00 PM");
+        schedule.setFriday("01:04 PM");
         schedule.setSaturday("12:00 PM");
         schedule.setSunday("");
 
@@ -42,7 +42,7 @@ public class AlarmClass {
         schedule1.setWednesday("12:03 PM");
         schedule1.setThursday("05:02 PM");
         schedule1.setSaturday("12:03 PM");
-        schedule1.setFriday("12:03 PM");
+        schedule1.setFriday("01:06 PM");
         schedule1.setSunday("");
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
@@ -107,6 +107,7 @@ public class AlarmClass {
         return Integer.valueOf(temp);
     }
 
+/*
     public void SetNextWeekDayAlarm(Schedule schedule,Context context, int daytime){
         switch (getDay()){
             case "Monday":
@@ -196,6 +197,7 @@ public class AlarmClass {
                 }
         }
     }
+*/
 
 
 
@@ -205,71 +207,71 @@ public class AlarmClass {
         Calendar calMonday = Calendar.getInstance();
         if(!schedule.getMonday().equals("")) {
             calMonday.setTimeInMillis(System.currentTimeMillis());
-            calMonday.set(Calendar.DAY_OF_WEEK, Monday);
+            calMonday.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
             calMonday.set(Calendar.HOUR_OF_DAY,Change_Time_to_int(schedule.getMonday()));
             calMonday.set(Calendar.MINUTE, timetemp);
             calMonday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Monday+" Time "+Change_Time_to_int(schedule.getMonday())+" minute "+timetemp);
+        //    Log.d("Day","Day "+Monday+" Time "+Change_Time_to_int(schedule.getMonday())+" minute "+timetemp);
         }
 
         Calendar calTuesday = Calendar.getInstance();
         if(!schedule.getTuesday().equals("")) {
             calTuesday.setTimeInMillis(System.currentTimeMillis());
-            calTuesday.set(Calendar.DAY_OF_WEEK, Tuesday);
+            calTuesday.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
             calTuesday.set(Calendar.HOUR_OF_DAY, Change_Time_to_int(schedule.getTuesday()));
             calTuesday.set(Calendar.MINUTE, timetemp);
             calTuesday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Tuesday+" Time "+Change_Time_to_int(schedule.getTuesday())+" minute "+timetemp);
+      //      Log.d("Day","Day "+Tuesday+" Time "+Change_Time_to_int(schedule.getTuesday())+" minute "+timetemp);
         }
 
 
         Calendar calWed = Calendar.getInstance();
         if(!schedule.getWednesday().equals("")) {
             calWed.setTimeInMillis(System.currentTimeMillis());
-            calWed.set(Calendar.DAY_OF_WEEK, Wednesday);
+            calWed.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
             calWed.set(Calendar.HOUR_OF_DAY, Change_Time_to_int(schedule.getWednesday()));
             calWed.set(Calendar.MINUTE, timetemp);
             calWed.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Wednesday+" Time "+Change_Time_to_int(schedule.getWednesday())+" minute "+timetemp);
+        //    Log.d("Day","Day "+Wednesday+" Time "+Change_Time_to_int(schedule.getWednesday())+" minute "+timetemp);
         }
         Calendar calthursday = Calendar.getInstance();
         if(!schedule.getThursday().equals("")) {
             calthursday.setTimeInMillis(System.currentTimeMillis());
-            calthursday.set(Calendar.DAY_OF_WEEK, Thursday);
+            calthursday.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
             int a =  Change_Time_to_int(schedule.getThursday());
             calthursday.set(Calendar.HOUR_OF_DAY,a);
             calthursday.set(Calendar.MINUTE, timetemp);
             calthursday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Thursday+" Time "+Change_Time_to_int(schedule.getThursday())+" minute "+timetemp);
+         //   Log.d("Day","Day "+Thursday+" Time "+Change_Time_to_int(schedule.getThursday())+" minute "+timetemp);
         }
         Calendar calfriday = Calendar.getInstance();
         if(!schedule.getFriday().equals("")) {
             calfriday.setTimeInMillis(System.currentTimeMillis());
-            calfriday.set(Calendar.DAY_OF_WEEK, Friday);
+            calfriday.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
             calfriday.set(Calendar.HOUR_OF_DAY, Change_Time_to_int(schedule.getFriday()));
             calfriday.set(Calendar.MINUTE, timetemp);
             calfriday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Friday+" Time "+Change_Time_to_int(schedule.getFriday())+" minute "+timetemp);
+         //   Log.d("Day","Day "+Friday+" Time "+Change_Time_to_int(schedule.getFriday())+" minute "+timetemp);
         }
 
         Calendar calsaturday = Calendar.getInstance();
         if(!schedule.getSaturday().equals("")) {
             calsaturday.setTimeInMillis(System.currentTimeMillis());
-            calsaturday.set(Calendar.DAY_OF_WEEK, Saturday);
+            calsaturday.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
             calsaturday.set(Calendar.HOUR_OF_DAY, Change_Time_to_int(schedule.getSaturday()));
             calsaturday.set(Calendar.MINUTE, timetemp);
             calsaturday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Saturday+" Time "+Change_Time_to_int(schedule.getSaturday())+" minute "+timetemp);
+         //   Log.d("Day","Day "+Saturday+" Time "+Change_Time_to_int(schedule.getSaturday())+" minute "+timetemp);
         }
 
         Calendar calsunday = Calendar.getInstance();
         if(!schedule.getSunday().equals("")) {
             calsunday.setTimeInMillis(System.currentTimeMillis());
-            calsunday.set(Calendar.DAY_OF_WEEK, Sunday);
+            calsunday.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
             calsunday.set(Calendar.HOUR_OF_DAY, Change_Time_to_int(schedule.getSunday()));
             calsunday.set(Calendar.MINUTE, timetemp);
             calsunday.set(Calendar.SECOND, 0);
-            Log.d("Day","Day "+Sunday+" Time "+Change_Time_to_int(schedule.getSunday())+" minute "+timetemp);
+         //   Log.d("Day","Day "+Sunday+" Time "+Change_Time_to_int(schedule.getSunday())+" minute "+timetemp);
         }
 
 
@@ -277,33 +279,70 @@ public class AlarmClass {
         //    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
 
+        long MondayTime,TuesTime,WedTime,ThursdayTime,FridayTime,SatTime,SunTime;
+
 
         if(!schedule.getMonday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calMonday.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7,
-                    pIntent(context,daytime+1));
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                MondayTime = calMonday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                MondayTime = calMonday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, MondayTime, AlarmManager.INTERVAL_DAY * 7,
+                    pIntent(context, daytime + 1));
         }
         if(!schedule.getTuesday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calTuesday.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                TuesTime = calTuesday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                TuesTime = calTuesday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, TuesTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+2));
         }
         if(!schedule.getWednesday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calWed.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                WedTime = calWed.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                WedTime = calWed.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, WedTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+3));
         }
         if(!schedule.getThursday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calthursday.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                ThursdayTime = calthursday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                ThursdayTime = calthursday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, ThursdayTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+4));
         }
         if(!schedule.getFriday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calfriday.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                FridayTime = calfriday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                FridayTime = calfriday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, FridayTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+5));
         }
         if(!schedule.getSaturday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calsaturday.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                SatTime = calsaturday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                SatTime = calsaturday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, SatTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+6));
         }
         if(!schedule.getSunday().equals("")) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calsunday.getTimeInMillis(),AlarmManager.INTERVAL_DAY * 7,
+            if (System.currentTimeMillis() > calMonday.getTimeInMillis()) {
+                SunTime = calsunday.getTimeInMillis() + AlarmManager.INTERVAL_DAY * 7;
+            } else {
+                SunTime = calsunday.getTimeInMillis();
+            }
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, SunTime,AlarmManager.INTERVAL_DAY * 7,
                     pIntent(context,daytime+7));
         }
 
