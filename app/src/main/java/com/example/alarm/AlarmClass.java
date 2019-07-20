@@ -33,7 +33,7 @@ public class AlarmClass {
         schedule.setWednesday("12:00 PM");
         schedule.setThursday("05:00 PM");
         schedule.setFriday("03:56 PM");
-        schedule.setSaturday("12:00 PM");
+        schedule.setSaturday("05:25 PM");
         schedule.setSunday("");
 
         schedule1 = new Schedule();
@@ -41,7 +41,7 @@ public class AlarmClass {
         schedule1.setTuesday("12:03 PM");
         schedule1.setWednesday("12:03 PM");
         schedule1.setThursday("05:02 PM");
-        schedule1.setSaturday("12:03 PM");
+        schedule1.setSaturday("05:27 PM");
         schedule1.setFriday("03:58 PM");
         schedule1.setSunday("");
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -349,9 +349,10 @@ public class AlarmClass {
     }
 
 
-    public PendingIntent pIntent(Context context, int i) {
+    public PendingIntent pIntent(Context context, int requestcode) {
         Intent intent = new Intent(context, Notification_reciever.class);
-        return PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        intent.putExtra("RequestCode",requestcode);
+        return PendingIntent.getBroadcast(context, requestcode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     public String getDay() {

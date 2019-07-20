@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        onNewIntent(getIntent());
         context = getApplicationContext();
         Toast.makeText(this, "On Create Called", Toast.LENGTH_SHORT).show();
 
@@ -155,6 +156,19 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(context, Notification_reciever.class);
         Boolean alarmup=(PendingIntent.getBroadcast(context, daytime, i, PendingIntent.FLAG_NO_CREATE)!=null);
         return alarmup;
+    }
+
+    @Override
+    public void onNewIntent(Intent intent){
+        Bundle extras = intent.getExtras();
+        if(extras != null){
+            if(extras.containsKey("RequestCode"))
+            {
+                Toast.makeText(context, extras.getInt("RequestCode")+"", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     }
 
 }

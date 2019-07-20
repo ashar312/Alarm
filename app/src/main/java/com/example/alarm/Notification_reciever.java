@@ -29,8 +29,9 @@ public class Notification_reciever extends BroadcastReceiver {
     }
 
     private void Notification(Context context, Intent intent){
+        int requestCode = intent.getIntExtra("RequestCode",1);
         intent = new Intent(context,MainActivity.class);
-        intent.putExtra("Notify","Alarm");
+        intent.putExtra("RequestCode",requestCode);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 100 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
@@ -58,7 +59,7 @@ public class Notification_reciever extends BroadcastReceiver {
                 .setTicker("Hearty365")
                 //     .setPriority(Notification.PRIORITY_MAX)
                 .setContentTitle("Book The Driver")
-                .setContentText("Click to Book The Driver")
+                .setContentText("RequestCode: " + requestCode)
                 .setContentInfo("Info")
                 .setContentIntent(pendingIntent);
 
